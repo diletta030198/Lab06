@@ -75,4 +75,14 @@ public class Citta {
 		return nome;
 	}
 	
+	public String stampaRilevamenti() {
+		String res="";
+		for(Rilevamento r: this.getRilevamenti()) {
+			res+=r.toString()+" *** ";
+			
+		}
+		return res;
+	}
+	
+	
 }

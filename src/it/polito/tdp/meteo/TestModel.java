@@ -8,7 +8,11 @@ public class TestModel {
 		
 		System.out.println(m.getUmiditaMedia(12));
 		
+		System.out.println(m.citta.get(1).stampaRilevamenti());
+		
+		
 		System.out.println(m.trovaSequenza(5));
+		
 		
 //		System.out.println(m.trovaSequenza(4));
 	}
