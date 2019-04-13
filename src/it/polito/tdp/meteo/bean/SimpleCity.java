@@ -10,7 +10,7 @@ public class SimpleCity {
 		this.nome = nome;
 	}
 	
-	public SimpleCity(String nome, int costo) {
+	public SimpleCity(String nome, double costo) {
 		this.nome = nome;
 		this.costo = costo;
 	}

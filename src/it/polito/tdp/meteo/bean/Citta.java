@@ -1,15 +1,24 @@
 package it.polito.tdp.meteo.bean;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+
 import java.util.List;
 
 public class Citta {
 
 	private String nome;
 	private List<Rilevamento> rilevamenti;
-	private int counter = 0;
+	private int counter ;
+	private int contatoreTotale; 
+	
+	
 	
 	public Citta(String nome) {
 		this.nome = nome;
+		counter=0; 
+		contatoreTotale=0; 
 	}
 	
 	public Citta(String nome, List<Rilevamento> rilevamenti) {
@@ -36,6 +45,16 @@ public class Citta {
 	public int getCounter() {
 		return counter;
 	}
+	
+	
+
+	public int getContatoreTotale() {
+		return contatoreTotale;
+	}
+
+	public void setContatoreTotale(int contatoreTotale) {
+		this.contatoreTotale = contatoreTotale;
+	}
 
 	public void setCounter(int counter) {
 		this.counter = counter;
@@ -43,6 +62,9 @@ public class Citta {
 	
 	public void increaseCounter() {
 		this.counter += 1;
+	}
+	public void decreaseCounter() {
+		this.counter -=1; 
 	}
 
 	@Override
@@ -82,6 +104,24 @@ public class Citta {
 			
 		}
 		return res;
+	}
+	
+	/**
+	 * Avendo un'ArrayList nell'algoritmo di ricorsione posso trovare il singolo valore di umidità
+	 * utilizzando l'indice che corrisponde al giorno del mese
+	 * @param mese
+	 * @return un'arrayList con le umidità per ciascun giorno del mese passato come parametro
+	 */
+	public double getUmiditaPerMeseGiorno(int mese, int giorno){
+		double umidita=0.0;  
+		for (Rilevamento r: rilevamenti) {
+
+			if(r.getData().getMonth().getValue()==mese && r.getData().getDayOfMonth()==giorno) {  
+				umidita=r.getUmidita(); 
+				break;
+			}
+		}
+		return umidita; 
 	}
 	
 	
